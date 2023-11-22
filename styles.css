@@ -1,11 +1,28 @@
-body {
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
 }
 
-.calendar-container, aside {
-    border: solid black 1px;
+body {
+    display: grid;
+    grid-template-columns: 70vw 30vw;
+    height: 100vh;
 }
+
+main {
+    border: solid black 1px;
+    background-color: aqua;
+}
+
+aside {
+    border: solid red 1px;
+    background-color: red;
+}
+
+.calendar-container {
+    grid-template-columns: repeat(7, 10vw);
+    grid-template-rows: repeat(8, 12.5vh);
+    display: grid;
+}
+
