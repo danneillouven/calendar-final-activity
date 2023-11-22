@@ -45,3 +45,10 @@ aside {
     justify-content: center;
     font-size: .5em;
 }
+
+.top-sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
