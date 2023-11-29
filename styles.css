@@ -22,6 +22,7 @@ header, main, aside {
 
 header {
     grid-column: 1/3;
+    
 }
 
 main {
