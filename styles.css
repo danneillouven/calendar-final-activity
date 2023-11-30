@@ -45,6 +45,12 @@ nav>ul>li {
     align-items: center;
 }
 
+.date div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .month-header>div {
     display: flex;
     flex-direction: row;
