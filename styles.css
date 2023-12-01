@@ -70,9 +70,11 @@ aside {
     justify-content: center;
 }
 
-.month-header>div {
+.month-header div {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .calendar-container {
@@ -91,7 +93,7 @@ aside {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;   
     grid-column: 1/8;
 }
 
