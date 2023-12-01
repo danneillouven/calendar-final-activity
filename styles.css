@@ -13,7 +13,7 @@ html {
 
 body {
     display: grid;
-    grid-template-columns: 78vw 20vw;
+    grid-template-columns: 70vw 25vw;
     grid-template-rows: 50px auto;
     height: 99vh;
     gap: 8px;
@@ -27,11 +27,11 @@ aside {
     padding: 20px;
 }
 
-/* main {
+main {
     display: flex;
     align-items: center;
     justify-content: center;
-} */
+}
 
 header {
     grid-column: 1/3;
@@ -120,4 +120,9 @@ nav>ul>li {
 
 .user-profile-picture {
     height: 20px;
+}
+
+.today {
+    color: black;
+    border: solid black;
 }
