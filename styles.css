@@ -41,7 +41,7 @@ header {
 
 nav {
     height: 100%;
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
 }
 
 nav>ul {
@@ -93,7 +93,7 @@ aside {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;   
+    justify-content: center;
     grid-column: 1/8;
 }
 
@@ -120,12 +120,11 @@ aside {
 
 .date {
     text-align: center;
-
 }
 
 .calendar-name {
     font-weight: bolder;
-    margin: 0 0 0 10px;
+    margin-left: 10px;
 }
 
 .user-profile-picture {
@@ -138,7 +137,7 @@ aside {
 }
 
 .user-events {
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
     padding: 10px;
     background: #257360;
     width: 100%;

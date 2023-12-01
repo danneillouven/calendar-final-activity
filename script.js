@@ -1,61 +1,75 @@
-const date = new Date();
-
-const renderCalendar = () => {
-    date.setDate(1);
-    const firstDayIndex = date.getDay();
-    const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
-    const monthDays = document.querySelector(".date");
-    const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-    const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
-    const nextDays = 7 - lastDayIndex - 1;
-    console.log(lastDayIndex);
-    const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ];
-
-    document.querySelector(".current-month").innerHTML = months[date.getMonth()];
-    document.querySelector(".current-year").innerHTML = date.getFullYear();
-
-    let days = "";
-
-    for (let i = firstDayIndex; i > 0; i--) {
-        days += `<div>${prevLastDay - i + 1}</div>`;
+class Calendar {
+    constructor() {
+        this.date = new Date();
+        this.months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
     }
 
-    for (let i = 1; i <= lastDay; i++) {
-        if (i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
-            days += `<div class="today">${i}</div>`;
-        } else {
-            days += `<div>${i}</div>`;
+    renderCalendar() {
+        const { date, months } = this;
+        date.setDate(1);
+
+        const firstDayIndex = date.getDay();
+        const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
+        const monthDays = document.querySelector(".date");
+        const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+        const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+        const nextDays = 7 - lastDayIndex - 1;
+
+        document.querySelector(".current-month").innerHTML = months[date.getMonth()];
+        document.querySelector(".current-year").innerHTML = date.getFullYear();
+
+        let days = this.generatePreviousMonthDays(prevLastDay, firstDayIndex);
+        days += this.generateCurrentMonthDays(lastDay);
+        days += this.generateNextMonthDays(nextDays);
+
+        monthDays.innerHTML = days;
+    }
+
+    generatePreviousMonthDays(prevLastDay, firstDayIndex) {
+        let days = "";
+        for (let i = firstDayIndex; i > 0; i--) {
+            days += `<div>${prevLastDay - i + 1}</div>`;
         }
+        return days;
     }
 
-    for (let i = 1; i <= nextDays; i++) {
-        days += `<div>${i}</div>`;
+    generateCurrentMonthDays(lastDay) {
+        let days = "";
+        for (let i = 1; i <= lastDay; i++) {
+            days += this.generateDayElement(i);
+        }
+        return days;
     }
 
-    monthDays.innerHTML = days;
-};
+    generateNextMonthDays(nextDays) {
+        let days = "";
+        for (let i = 1; i <= nextDays; i++) {
+            days += this.generateDayElement(i);
+        }
+        return days;
+    }
+
+    generateDayElement(day) {
+        const isToday = day === new Date().getDate() && this.date.getMonth() === new Date().getMonth();
+        return `<div${isToday ? ' class="today"' : ''}>${day}</div>`;
+    }
+
+    updateMonth(offset) {
+        this.date.setMonth(this.date.getMonth() + offset);
+        this.renderCalendar();
+    }
+}
+
+const calendar = new Calendar();
+calendar.renderCalendar();
 
 document.querySelector('.prev-month').addEventListener('click', () => {
-    date.setMonth(date.getMonth() - 1);
-    renderCalendar();
+    calendar.updateMonth(-1);
 });
 
 document.querySelector('.next-month').addEventListener('click', () => {
-    date.setMonth(date.getMonth() + 1);
-    renderCalendar();
+    calendar.updateMonth(1);
 });
-
-renderCalendar();
