@@ -27,6 +27,12 @@ aside {
     padding: 20px;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 header {
     grid-column: 1/3;
 }
