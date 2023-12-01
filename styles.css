@@ -9,6 +9,8 @@ html {
     color: #257360;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 body {
@@ -16,7 +18,7 @@ body {
     grid-template-columns: 70vw 25vw;
     grid-template-rows: 50px auto;
     height: 99vh;
-    gap: 8px;
+    gap: 3px;
 }
 
 header,
