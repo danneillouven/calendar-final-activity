@@ -58,6 +58,12 @@ nav>ul>li {
     align-items: center;
 }
 
+aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .date div {
     display: flex;
     align-items: center;
@@ -127,4 +133,13 @@ nav>ul>li {
 .today {
     color: black;
     border: solid black;
+}
+
+.user-events {
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    background: #257360;
+    width: 100%;
+    color: azure;
+    border-radius: 10px;
 }
