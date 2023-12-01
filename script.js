@@ -1,5 +1,5 @@
 const date = new Date();
-date.setDate(1);
+date.setDate(0);
 const firstDayIndex = date.getDay();
 const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
 const monthDays = document.querySelector(".date");

@@ -24,6 +24,7 @@ aside {
     background: #e0e0e0;
     box-shadow: -18px 18px 35px #8d8d8d,
         18px -18px 35px #ffffff;
+    padding: 20px;
 }
 
 header {
@@ -61,7 +62,7 @@ nav>ul>li {
 }
 
 .calendar-container {
-    grid-template-columns: repeat(7, 10vw);
+    grid-template-columns: repeat(7, 9vw);
     grid-template-rows: 15vh 5vh 60vh;
     display: grid;
 }
